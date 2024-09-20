@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:text="กางแกงขายาว"
             android:textSize="22sp"
+            android:textColor="#050505"
             android:textStyle="bold"/>
 
         <TextView
@@ -45,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="$200"
+            android:textColor="#050505"
             android:textSize="18sp" />
     </LinearLayout>
     <TextView
@@ -52,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="สีขาว ผ้ายืด ขนาด M"
+        android:textColor="#050505"
         android:textSize="18sp" />
 
     <LinearLayout
@@ -65,32 +68,32 @@
             android:id="@+id/btnRemoveProduct"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            app:backgroundTint="#f2f2f2"
-            android:background ="@drawable/button"
-            android:textColor="#4800ff"
+            android:background="@drawable/button"
+            android:text="-"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:text="-" />
+            app:backgroundTint="#F43939" />
 
         <EditText
             android:id="@+id/editQuantity"
             android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:textAlignment="center"
+            android:layout_height="match_parent"
             android:background="@null"
-            android:textStyle="bold"
+            android:inputType="number"
+            android:text="1"
+            android:textAlignment="center"
             android:textSize="20sp"
-            android:text="1" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnAddProduct"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            app:backgroundTint="#f2f2f2"
-            android:background ="@drawable/button_cart"
-            android:textColor="#4800ff"
+            android:background="@drawable/button_cart"
+            android:text="+"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:text="+" />
+            app:backgroundTint="#49B14D" />
     </LinearLayout>
     <Button
         android:id="@+id/btnAddToCart"
