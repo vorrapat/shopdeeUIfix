@@ -1,10 +1,30 @@
 <resources>
     <!-- API Endpoints -->
-    <string name="root_url">http://10.10.9.49:4000</string>
-    <string name="login_url">/api/login</string>
-    <string name="register_url">/api/register</string>
-    <string name="profile_url">/api/profile/</string>
+    <string name="root_url">http://10.10.9.38:4000/</string>
+    <string name="login_url">api/login</string>
+    <string name="register_url">api/register</string>
+    <string name="profile_url">api/profile/</string>
     <string name="customer_image_url">assets/customer/</string>
+    <string name="customer_update_url">api/customer/</string>
+
+    <!-- PRODUCT URL -->
+    <string name="product_url">api/product/</string>
+    <string name="product_image_url">assets/product/</string>
+
+    <!-- ORDER -->
+    <string name="cart_url">api/cart/</string>
+    <string name="makeorder_url">api/makeorder</string>
+    <string name="confirmorder_url">api/confirmorder/</string>
+    <string name="orderdetail_url">api/orderdetail/</string>
+    <string name="history_url">api/history/</string>
+    <string name="orderinfo_url">api/orderinfo/</string>
+
+
+    <!-- PAYMENT URL -->
+    <string name="payment_url">api/payment/</string>
+
+    <!-- DASHBOARD URL -->
+    <string name="monthlySale_url">api/monthlySale/</string>
 
     <!-- Text -->
     <string name="app_name">Shopdee</string>

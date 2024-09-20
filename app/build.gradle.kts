@@ -55,4 +55,6 @@ dependencies {
 
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.picasso:picasso:2.8")
+    implementation("com.github.Drjacky:ImagePicker:2.3.22")
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 }

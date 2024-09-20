@@ -1,6 +1,8 @@
 package th.ac.rmutto.shopdee
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.StrictMode
 import androidx.fragment.app.Fragment
@@ -8,17 +10,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.squareup.picasso.Picasso
-import okhttp3.FormBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okhttp3.RequestBody
-import org.json.JSONException
 import org.json.JSONObject
-import java.io.IOException
 
 
 class CustomerFragment : Fragment() {
@@ -27,6 +25,8 @@ class CustomerFragment : Fragment() {
     var textViewUsername: TextView? = null
     var textViewFirstName: TextView? = null
     var textViewLastName: TextView? = null
+    var textViewEmail: TextView? = null
+    var textViewGender: TextView? = null
 
 
     override fun onCreateView(
@@ -49,10 +49,32 @@ class CustomerFragment : Fragment() {
         imageViewFile = root.findViewById<ImageView>(R.id.imageViewFile)
         textViewUsername = root.findViewById<TextView>(R.id.textViewUsername)
         textViewFirstName = root.findViewById<TextView>(R.id.textViewFirstName)
-        textViewLastName = root.findViewById<TextView>(R.id.textViewLastNae)
+        textViewLastName = root.findViewById<TextView>(R.id.textViewLastName)
+        textViewEmail = root.findViewById<TextView>(R.id.textViewEmail)
+        textViewGender = root.findViewById<TextView>(R.id.textViewGender)
 
         var buttonUpdate = root.findViewById<Button>(R.id.buttonUpdate)
         var buttonLogout = root.findViewById<Button>(R.id.buttonLogout)
+
+        buttonUpdate.setOnClickListener {
+            val intent = Intent(context, CustomerUpdateActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonLogout.setOnClickListener {
+            val editor = sharedPrefer.edit()
+            editor.clear() // ทำการลบข้อมูลทั้งหมดจาก preferences
+            editor.apply() // ยืนยันการแก้ไข preferences
+
+            Toast.makeText(
+                requireContext(), "ออกจากระบบเรียบร้อยแล้ว",
+                Toast.LENGTH_LONG
+            ).show()
+
+            //return to login page
+            val intent = Intent(context, LoginActivity::class.java)
+            startActivity(intent)
+        }
 
         viewUser(custID!!, token!!)
 
@@ -78,6 +100,8 @@ class CustomerFragment : Fragment() {
                 var username = data.getString("username")
                 var firstName = data.getString("firstName")
                 var lastName = data.getString("lastName")
+                var email = data.getString("email")
+                var gender = data.getString("gender")
 
 
                 if (!imageFile.equals("null") && !imageFile.equals("")){
@@ -94,6 +118,18 @@ class CustomerFragment : Fragment() {
 
                 if(lastName.equals("null"))lastName = "-"
                 textViewLastName?.text = lastName
+
+                if(email.equals("null"))email = "-"
+                textViewEmail?.text = email
+
+                if(gender.equals("null")){
+                    textViewGender?.text = "-"
+                }else if(gender.equals("0")){
+                    textViewGender?.text = "ชาย"
+                }else if(gender.equals("1")){
+                    textViewGender?.text = "หญิง"
+                }
+
 
             }
 

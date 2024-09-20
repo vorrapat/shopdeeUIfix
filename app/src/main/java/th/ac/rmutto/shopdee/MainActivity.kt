@@ -1,5 +1,6 @@
 package th.ac.rmutto.shopdee
 
+import android.content.Context
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +8,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
 import th.ac.rmutto.shopdee.databinding.ActivityMainBinding
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
